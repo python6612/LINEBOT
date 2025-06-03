@@ -1,0 +1,27 @@
+# Docker 本地開發環境變數範例
+# 複製此檔案為 .env.docker 並填入實際值
+
+# === 必要設定 ===
+LINE_CHANNEL_ACCESS_TOKEN=your_line_channel_access_token
+LINE_CHANNEL_SECRET=your_line_channel_secret
+GEMINI_API_KEY=your_gemini_api_key
+
+# === Google 服務設定 ===
+GOOGLE_API_KEY=your_google_api_key
+GOOGLE_SEARCH_ENGINE_ID=your_search_engine_id
+
+# Google 服務帳戶 JSON（需要轉為單行字串）
+# 使用 jq -c . service_account.json 將 JSON 轉為單行
+GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your_project"...}
+
+# === 第三方 API 設定 ===
+WEATHER_API_KEY=your_weather_api_key
+NEWS_API=your_news_api_key
+
+# === 應用程式設定 ===
+PORT=10000
+FLASK_ENV=development
+
+# === Docker 特定設定 ===
+PYTHONDONTWRITEBYTECODE=1
+PYTHONUNBUFFERED=1 

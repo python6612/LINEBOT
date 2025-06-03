@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: linebot-docker
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: singapore
+    autoDeploy: true
+    
+    envVars:
+      # 必要環境變數
+      - key: LINE_CHANNEL_ACCESS_TOKEN
+        sync: false
+      - key: LINE_CHANNEL_SECRET
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      
+      # Google 服務設定
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: GOOGLE_SEARCH_ENGINE_ID
+        sync: false
+      - key: GOOGLE_CREDENTIALS
+        sync: false
+      
+      # 第三方 API 設定
+      - key: WEATHER_API_KEY
+        sync: false
+      - key: NEWS_API
+        sync: false
+      
+      # 應用程式設定
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHONDONTWRITEBYTECODE
+        value: "1" 

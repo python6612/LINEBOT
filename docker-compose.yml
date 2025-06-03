@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  linebot:
+    build: .
+    ports:
+      - "10000:10000"
+    env_file:
+      - .env.docker
+    
+    volumes:
+      # 將日誌和結果目錄掛載到主機
+      - ./debug:/app/debug
+      - ./note:/app/note
+      - ./result:/app/result
+      - ./test:/app/test
+    
+    restart: unless-stopped
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:10000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # 資源限制
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M 
