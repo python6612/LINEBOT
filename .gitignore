@@ -69,3 +69,9 @@ ngrok.exe
 # Data files
 *.json
 !render.yaml
+
+# Project specific - 開發過程的文檔和測試文件夾
+debug/
+note/
+result/
+test/
